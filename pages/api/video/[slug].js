@@ -22,7 +22,7 @@ return (
 
 export const getServerSideProps = async (pageContext) => {
     const pageSlug = pageContext.query.slug
-    const query = `*[ _type == "video" && slug.current == $pageSlug ][0]{'
+    const query = `*[ _type == "video" && slug.current == $pageSlug ][0]{
     title,
     id,
     'asset': videoAsset.asset->,
@@ -46,7 +46,7 @@ export const getServerSideProps = async (pageContext) => {
             subscribers,
             }
          }
-    '}`
+     }`
 
    const video = await sanityClient.fetch(query, { pageSlug })
 
@@ -70,5 +70,5 @@ export const getServerSideProps = async (pageContext) => {
     }
 }
 }
-
-export const Video;
+ 
+export default Video;
