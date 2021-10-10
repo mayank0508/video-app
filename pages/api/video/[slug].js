@@ -36,6 +36,8 @@ const getServerSideProps = async () => {
             }
          }
     '}`
+
+   const video = await sanityClient.fetch(query, { pageSlug })
 }
 
 export const Video;
