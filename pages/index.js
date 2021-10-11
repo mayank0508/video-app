@@ -1,4 +1,4 @@
-import { sanityClient } from '../sanity';
+import { sanityClient } from '../sanity'
 
 const Home = ({ videos }) => {
   console.log(videos);

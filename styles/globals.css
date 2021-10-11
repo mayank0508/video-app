@@ -14,3 +14,12 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.video {
+  padding: 30px;
+}
+
+.video-info {
+  display: flex;
+  justify-content: space-between;
+}
