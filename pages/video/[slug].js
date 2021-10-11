@@ -1,4 +1,4 @@
-import { sanityClient } from '../../sanity';
+import { sanityClient, urlFor } from '../../sanity';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
@@ -16,17 +16,30 @@ const Video = ({
       .length;
   };
 
+  const subcount = value => (value === 0 || value > 1 ? 's' : '');
+
   console.log(title);
   return (
     <div className="video">
       <h3>{title}</h3>
       <div className="video-info">
         <h6>Premiumed on {date}</h6>
-        <div className='sentiment'>
-          <h3><FontAwesomeIcon icon={faThumbsUp}/>{sentimentCount(interaction, 'like')}</h3>
-          <h3><FontAwesomeIcon icon={faThumbsDown}/>{sentimentCount(interaction, 'dislike')}</h3>
+        <div className="sentiment">
+          <h3>
+            <FontAwesomeIcon className="icon" icon={faThumbsUp} />
+            {sentimentCount(interaction, 'like')}
+          </h3>
+          <h3>
+            <FontAwesomeIcon className="icon" icon={faThumbsDown} />
+            {sentimentCount(interaction, 'dislike')}
+          </h3>
         </div>
       </div>
+      <div className="author-info">
+        <img src={urlFor(author.avatar)} />
+      </div>
+      <h4>{author.username}</h4>
+      <h6>{author.followers} Bhakt{subcount(author.followers)}</h6>
     </div>
   );
 };
@@ -45,7 +58,7 @@ export const getServerSideProps = async pageContext => {
         username,
         slug,
         avatar,
-        subscribers,
+        followers,
     },
     interaction[]{
         ...,
@@ -54,7 +67,7 @@ export const getServerSideProps = async pageContext => {
             username,
             slug,
             avatar,
-            subscribers,
+            followers,
             }
          }
      }`;

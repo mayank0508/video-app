@@ -6,5 +6,5 @@ const config = {
     useCdn: process.env.NODE_ENV === 'production',
 }
 // helpers
-export const urlFor = (source) => createImageUrlBuilder(config).image(source);
-export const sanityClient = createClient(config);
+export const urlFor = (source) => createImageUrlBuilder(config).image(source); // this helps to conver the image to correct extension
+export const sanityClient = createClient(config); // this helps to validate the client configuration
