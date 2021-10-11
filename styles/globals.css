@@ -58,3 +58,18 @@ h6, h5, h4, h3, h2, h1 {
   margin-right: 10px;
   border-radius: 50%;
 }
+
+.video-card {
+  width: 48%;
+  margin: 1%;
+}
+
+.video-feed {
+  display: flex;
+  flex-wrap: wrap; 
+}
+
+.thumbnail {
+  width: 100%;
+  border-radius: 5%;
+}
