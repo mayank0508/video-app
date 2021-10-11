@@ -23,3 +23,8 @@ a {
   display: flex;
   justify-content: space-between;
 }
+
+.sentiment {
+  display: flex;
+  justify-content: space-between;
+}

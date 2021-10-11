@@ -1,4 +1,6 @@
 import { sanityClient } from '../../sanity';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
 const Video = ({
   title,
@@ -20,9 +22,9 @@ const Video = ({
       <h3>{title}</h3>
       <div className="video-info">
         <h6>Premiumed on {date}</h6>
-        <div>
-          <h3>{sentimentCount(interaction, 'like')}</h3>
-          <h3>{sentimentCount(interaction, 'dislike')}</h3>
+        <div className='sentiment'>
+          <h3><FontAwesomeIcon icon={faThumbsUp}/>{sentimentCount(interaction, 'like')}</h3>
+          <h3><FontAwesomeIcon icon={faThumbsDown}/>{sentimentCount(interaction, 'dislike')}</h3>
         </div>
       </div>
     </div>
