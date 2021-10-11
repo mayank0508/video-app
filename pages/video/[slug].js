@@ -1,6 +1,8 @@
 import { sanityClient, urlFor } from '../../sanity';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+import Comment from '../../components/comment';
+
 
 const Video = ({
   title,
@@ -37,9 +39,21 @@ const Video = ({
       </div>
       <div className="author-info">
         <img src={urlFor(author.avatar)} />
+        <div>
+          <h4>{author.username}</h4>
+          <h6>
+            {author.followers} Bhakt{subcount(author.followers)}
+          </h6>
+          <p>{description}</p>
+        </div>
       </div>
-      <h4>{author.username}</h4>
-      <h6>{author.followers} Bhakt{subcount(author.followers)}</h6>
+      <h3>
+        {interaction.length} Comment{subcount(interaction.length)}
+      </h3>
+      <hr />
+      {interaction.map((interaction, _id) => (
+        <Comment key={_id} interaction={interaction} />
+      ))}
     </div>
   );
 };
