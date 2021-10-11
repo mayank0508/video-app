@@ -9,12 +9,21 @@ const Video = ({
   author,
   interaction
 }) => {
+  const sentimentCount = (interaction, sentiment) => {
+    return interaction.filter(interaction => interaction.sentiment == sentiment)
+      .length;
+  };
+
   console.log(title);
   return (
     <div className="video">
       <h3>{title}</h3>
       <div className="video-info">
-          <h6>Premiumed on {date}</h6>
+        <h6>Premiumed on {date}</h6>
+        <div>
+          <h3>{sentimentCount(interaction, 'like')}</h3>
+          <h3>{sentimentCount(interaction, 'dislike')}</h3>
+        </div>
       </div>
     </div>
   );
