@@ -2,7 +2,7 @@ import { sanityClient, urlFor } from '../../sanity';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import Comment from '../../components/comment';
-
+import SanityMuxPlayer from 'sanity-mux-player';
 
 const Video = ({
   title,
@@ -23,6 +23,16 @@ const Video = ({
   console.log(title);
   return (
     <div className="video">
+      
+      <SanityMuxPlayer
+        assetDocument={asset}
+        autoload={true}
+        autoplay={true}
+        loop={false}
+        muted={false}
+        showControls={true}
+      />
+
       <h3>{title}</h3>
       <div className="video-info">
         <h6>Premiumed on {date}</h6>
